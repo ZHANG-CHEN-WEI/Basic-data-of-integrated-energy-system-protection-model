@@ -27,7 +27,14 @@ $$\{P_{attacksuccess,j}} = 0.6 - \frac{{linbetweennes{s_j} \times lineindex}}{{1
 ## 备用站/备用线路成本参数
 &ensp;&ensp;&ensp;&ensp;本文认为，节点的带权重介数越高，说明节点越关键，建立该节点的备用站的成本就越高；线路的带权重介数越高，说明线路越关键，建立该线路的备用线路的成本就越高。因此，本章设置的加备用站成本如下式所示：
 $$costcoefficientbus = {\rm{COSTCOEFFICIENTBUS}} \times (0.1 + \frac{{nodebetweennes{s_i}}}{{\sum\limits_{0 < i \le nodeindex} {nodebetweennes{s_i}} }})\$$
-式中， $\{\rm{COSTCOEFFICIENTBUS}}\$表示加备用站的成本系数；0.1表示建立备用站的固定成本系数；$\frac{{nodebetweennes{s_i}}}{{\sum\limits_{0 < i \le nodeindex} {nodebetweennes{s_i}} }}\$表示节点带权重介数的占比。
+式中， $\{\rm{COSTCOEFFICIENTBUS}}\$表示加备用站的成本系数；0.1表示建立备用站的固定成本系数；
+$\\frac{{nodebetweennes{s_i}}}{{\sum\limits_{0 < i \le nodeindex} {nodebetweennes{s_i}} }}\$
+表示节点带权重介数的占比。  
+加备用线路的成本如式所示。  
+$$costcoefficientline = {\rm{COSTCOEFFICIENTLINE}} \times (0.1 + \frac{{linebetweennes{s_j}}}{{\sum\limits_{0 < j \le lineindex} {linbetweennes{s_j}} }})\$$
+式中， $\{\rm{COSTCOEFFICIENTLINE}}\$表示加备用线路的成本系数；0.1表示建立备用线路的固定成本系数；
+$\\frac{{linebetweennes{s_j}}}{{\sum\limits_{0 < j \le lineindex} {linbetweennes{s_j}} }}\$
+表示线路带权重介数的占比。  
 &ensp;&ensp;&ensp;&ensp;本模型设置的加备用站、备用线路成本系数如表3所示。
 #### 表3:备用站/备用线路成本系数
 保护类型  | 加备用站（万元）|加备用线路（万元）
