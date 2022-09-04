@@ -1,48 +1,48 @@
 # Basic-data-of-integrated-energy-system-protection-model
-Based on the established electric gas thermal coupling integrated energy system as an example, the probability of node / line being attacked, the probability of node / line being successfully attacked and the cost parameters are shown below.
-## 节点/线路被攻击的概率
-&ensp;&ensp;&ensp;&ensp;本文认为，节点/线路会受到自然灾害攻击和人为攻击两种攻击方式，其中自然灾害攻击发生概率低，但是所有节点/线路都有可能发生，而人为攻击发生的概率相对较高，且集中于较为重要的节点/线路。即带权重的介数较高的节点/线路更易遭受人为攻击。因此，本模型所设置的节点被攻击的概率如下式所示:  
+&ensp;&ensp;&ensp;&ensp;Based on the established electric gas thermal coupling integrated energy system as an example, the probability of node / line being attacked, the probability of node / line being successfully attacked and the cost parameters are shown below.
+## The probability of node/line being attacked
+&ensp;&ensp;&ensp;&ensp;This paper holds that node/line would be attacked in two ways: natural disasters and sabotage. The probability of attacks under natural disasters is rather low but every node/line would be attacked; while sabotage is of a relatively high probability and onto relatively important nodes/lines, i.e., high-weighted nodes/lines are prone to more artificial attacks. Therefore, the probability of nodes being attacked in this model is set in the following formula:   
 $$\{P_{attack,i}} = 0.01 + \frac{{nodebetweennes{s_i} \times nodeindex}}{{10}}$$
-式中，0.01表示自然灾害攻击节点的概率；$\frac{{nodebetweennes{s_i} \times nodeindex}}{{10}}\$表示人为攻击节点的概率，节点的带权重节点介数越高被攻击的概率就越高。  
-&ensp;&ensp;&ensp;&ensp;线路被攻击的概率如下式所示:
+Where 0.01 is the probability of nodes being attacked by natural disasters; $\frac{{nodebetweennes{s_i} \times nodeindex}}{{10}}\$ is the probability of artificial attacks on nodes. The higher the weighted node betweenness is, is more likely it is to be attacked.  
+&ensp;&ensp;&ensp;&ensp;The probability of lines being attacked is shown as follows:
 $$\{P_{attack,j}} = 0.1 + \frac{{linebetweennes{s_j} \times lineindex}}{{10}}\$$
-式中，0.1表示自然灾害攻击线路的概率，线路比节点更易遭受自然灾害的攻击；$\frac{{nodebetweennes{s_i} \times nodeindex}}{{10}}\$表示人为攻击线路的概率，线路的带权重节点介数越高被攻击的概率就越高。  
-## 节点/线路被成功攻击的概率
-&ensp;&ensp;&ensp;&ensp;本文认为，节点/线路被成功攻击的概率与其带权重介数有关。节点/线路的带权重介数越大，说明其越重要，防护就越完善，被成功攻击的概率就越低。同时，节点比线路被成功攻击的概率要低。因此，本模型所设置的节点被成功攻击的概率如下式所示：
+Where 0.1 means the probability of lines being attacked by natural disasters; $\frac{{nodebetweennes{s_i} \times nodeindex}}{{10}}\$ is the probability of artificial attacks on nodes.The higher the weighted line betweenness is, is more likely it is to be attacked.
+## The probability of nodes/lines being attacked successfully
+&ensp;&ensp;&ensp;&ensp;This paper holds that it is pertinent between the probability of nodes/lines being attacked successfully and their weighted betweenness. The higher the weighted betweenness of nodes/lines is, the more important it is, the more sophisticated its protection is, and the less probability of nodes/lines being attacked successfully. Meanwhile, the probability of nodes being attacked is lower than that of lines.
+Hence, the probability of nodes being attacked in this model is set in the following formula:  
 $$\{P_{attacksuccess,i}} = 0.5 - \frac{{nodebetweennes{s_i} \times nodeindex}}{{10}}\$$
-&ensp;&ensp;&ensp;&ensp;线路被成功攻击的概率如下式所示：
+&ensp;&ensp;&ensp;&ensp;The probability of lines being attacked successfully is shown as follows:  
 $$\{P_{attacksuccess,j}} = 0.6 - \frac{{linbetweennes{s_j} \times lineindex}}{{10}}\$$
-## 加边成本参数
-&ensp;&ensp;&ensp;&ensp;本模型设置的电网、气网、热网的加边成本参数如表1所示。其中，电网加边是加输电线路，气网加边是加天然气管道，热网加边是加供回水管道（加一条热网边即同时加供水管道和回水管道）。  
-#### 表1:加边成本参数
-子网类型  | 电网（万元/条）|天然气网（万元/条）|热网（万元/条）
+## Parameters of adding-edge cost
+&ensp;&ensp;&ensp;&ensp;Table 1 displays the parameter of adding-edge cost of the power network, gas network, and heat network set in this model. Adding edges in a power network means adding power transmission lines; in a gas network, it means adding natural gas transmission pipes; in a heat network, it refers to adding water supply and return lines. (One edge addition in the heat network is equal to adding a water supply pipe and water return pipe simultaneously.  
+#### Table 1: Parameter of adding-edge cost
+Subnet types  | Power network(10k yuan/line)|Natural gas network(10k yuan/line)|Heat network(10k yuan/line)
 :-------------: |:-------------:|:-------------:|:-------------:
-加边成本参数  | 1500|2000|4000
-## 物理防护成本参数
-&ensp;&ensp;&ensp;&ensp;本模型设置的节点、线路物理防护成本系数如表2所示。
-#### 表2:物理防护成本系数
-物理防护类型  | 节点（万元）|线路（万元）
+Adding side cost parameters  | 1500|2000|4000
+## Parameters of physical protection cost
+&ensp;&ensp;&ensp;&ensp;Table 2 shows the cost coefficient of physical protection on nodes and lines in this model.  
+#### Table 2:cost coefficient of physical protection
+Types of physical protection  | Node(10k yuan)|Line(10k yuan)
 :-------------: |:-------------:|:-------------:
-物理防护成本参数  | 2000|1600
-## 备用站/备用线路成本参数
-&ensp;&ensp;&ensp;&ensp;本文认为，节点的带权重介数越高，说明节点越关键，建立该节点的备用站的成本就越高；线路的带权重介数越高，说明线路越关键，建立该线路的备用线路的成本就越高。因此，本章设置的加备用站成本如下式所示：
+Parameters of physical protection cost  | 2000|1600
+## Parameters of cost of backup stations/lines
+&ensp;&ensp;&ensp;&ensp;  This paper proposes that the higher the weighted betweenness of a node is, the more critical the node is, and the higher the cost of building its backup station is; The higher the weighted betweenness of a line is, the more critical the node is, and the higher the cost of building its backup station is. Therefore, in this chapter, the cost of adding backup stations is set by the following formula:  
 $$costcoefficientbus = {\rm{COSTCOEFFICIENTBUS}} \times (0.1 + \frac{{nodebetweennes{s_i}}}{{\sum\limits_{0 < i \le nodeindex} {nodebetweennes{s_i}} }})\$$
-式中， $\{\rm{COSTCOEFFICIENTBUS}}\$表示加备用站的成本系数；0.1表示建立备用站的固定成本系数；
+Where， $\{\rm{COSTCOEFFICIENTBUS}}\$ is the cost coefficient of adding backup stations; nodebetweenness；
 $\\frac{{nodebetweennes{s_i}}}{{\sum\limits_{0 < i \le nodeindex} {nodebetweennes{s_i}} }}\$
-表示节点带权重介数的占比。  
-加备用线路的成本如式所示。  
+ is the portion of nodes with weighted betweenness.  The cost of adding the backup line is shown in the following formula.  
 $$costcoefficientline = {\rm{COSTCOEFFICIENTLINE}} \times (0.1 + \frac{{linebetweennes{s_j}}}{{\sum\limits_{0 < j \le lineindex} {linbetweennes{s_j}} }})\$$
-式中， $\{\rm{COSTCOEFFICIENTLINE}}\$表示加备用线路的成本系数；0.1表示建立备用线路的固定成本系数；
+Where， $\{\rm{COSTCOEFFICIENTLINE}}\$ is the cost coefficient of adding backup stations; 0.1 is the fixed cost factor for establishing a standby line；
 $\\frac{{linebetweennes{s_j}}}{{\sum\limits_{0 < j \le lineindex} {linbetweennes{s_j}} }}\$
-表示线路带权重介数的占比。  
-&ensp;&ensp;&ensp;&ensp;本模型设置的加备用站、备用线路成本系数如表3所示。
-#### 表3:备用站/备用线路成本系数
-保护类型  | 加备用站（万元）|加备用线路（万元）
+ is the portion of nodes with weighted betweenness.   
+&ensp;&ensp;&ensp;&ensp;The cost coefficient of adding backup stations/lines is displayed in Table 3.
+#### Table 3:Cost coefficient of adding backup stations/lines
+Protection types  | Backup station addition (10k yuan)|Backup line addition (10k yuan)
 :-------------: |:-------------:|:-------------:
-成本参数  |24000|18000
-## 其他参数
-&ensp;&ensp;&ensp;&ensp;本模型算例中所使用的其他参数，具体为加边数量与变量处理等约束如表4所示。
-#### 表4:其他参数数值
- 参数 | $\alpha $|$\beta $|$\gamma $
+Cost parameters  |24000|18000
+## Other parameters
+&ensp;&ensp;&ensp;&ensp;Table 4 shows other parameters mentioned in the algorithms of this model, in particular the number of constraints, such as adding edges and variable processing.
+#### Table 4:Values of other parameters
+ Parameter | $\alpha $|$\beta $|$\gamma $
 :-------------: |:-------------:|:-------------:|:-------------:
-数值  |0.15%|0.15%|0.15%
+Value  |0.15%|0.15%|0.15%
